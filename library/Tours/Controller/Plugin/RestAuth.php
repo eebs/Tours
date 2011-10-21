@@ -4,7 +4,7 @@ class Tours_Controller_Plugin_RestAuth extends Zend_Controller_Plugin_Abstract
     public function preDispatch(Zend_Controller_Request_Abstract $request)
     {
 		// If the request is going to the API, check for authorization
-        if($request->getControllerName() == "api"){
+        if($request->getModuleName() == "api" && $request->getControllerName() != 'index'){
 			$authHeader = $request->getHeader('Authorization');
 			$dateHeader = $request->getHeader('Date');
 

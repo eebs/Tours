@@ -1,6 +1,6 @@
 <?php
 
-class ApiController extends Zend_Rest_Controller
+class Api_TourController extends Zend_Rest_Controller
 {
 
 	public function init()

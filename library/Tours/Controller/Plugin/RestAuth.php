@@ -5,9 +5,21 @@ class Tours_Controller_Plugin_RestAuth extends Zend_Controller_Plugin_Abstract
     {
 		// If the request is going to the API, check for authorization
         if($request->getControllerName() == "api"){
-			$apiKey = $request->getHeader('Authorization');
+			$authHeader = $request->getHeader('Authorization');
+			$dateHeader = $request->getHeader('Date');
 
-			if ($apiKey != 'secret') {
+			// maybe check date to see if it's within 180 seconds of current time?
+			$logger = Zend_Registry::get('log');
+
+			if ($authHeader && $dateHeader) {
+				$authModel = new Application_Model_Authentication();
+				$isAuthed = $authModel->authenticate($authHeader, $dateHeader);
+				$logger->debug($isAuthed);
+			}else{
+				$isAuthed = false;
+			}
+
+			if(!$isAuthed){
 				$this->getResponse()
 						->setHttpResponseCode(403)
 						->appendBody("Invalid API Key\n")

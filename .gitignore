@@ -1,5 +1,6 @@
 .zfproject.xml
 /tests
 /docs
+/data/logs
 /application/configs/application.ini
 

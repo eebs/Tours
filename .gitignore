@@ -1,1 +1,5 @@
 .zfproject.xml
+/tests
+/docs
+/application/configs/application.ini
+

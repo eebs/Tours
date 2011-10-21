@@ -1,11 +1,11 @@
 <?php
 
-class ToursController extends Zend_Controller_Action
+class ToursController extends Zend_Rest_Controller
 {
 
     public function init()
     {
-        /* Initialize action controller here */
+        $this->_helper->viewRenderer->setNoRender(true);
     }
 
     public function indexAction()

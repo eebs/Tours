@@ -17,6 +17,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $logger = new Zend_Log();
 
         $writer = new Zend_Log_Writer_Stream(APPLICATION_PATH . '/../data/logs/app.log');
+		/* Use a customized Formatting and add custom log Events */
+		$formatter = new Zend_Log_Formatter_Simple('[%timestamp%] [%ipvisitor%] [%priorityName%]: %message%' . PHP_EOL);
+		$writer->setFormatter($formatter);
+		$logger->setEventItem('ipvisitor', $_SERVER['REMOTE_ADDR']);
+		$logger->setEventItem('timestamp', date('m-d-Y H:i:s', time()));
+		
         $logger->addWriter($writer);
 
 		if ('production' == $this->getEnvironment()) {

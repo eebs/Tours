@@ -22,7 +22,7 @@ class Application_Model_Authentication extends Dm_Model_Abstract
 		}
 		$testValue = 'can'.$method;
 		if($client->isActive && $client->$testValue){
-			return $parts[2] === base64_encode(sha1($client->privateKey . '\n' . $dateHeader));
+			return $parts[2] === base64_encode(sha1($client->privateKey . "\n" . $dateHeader));
 		}
 		return false;
 	}

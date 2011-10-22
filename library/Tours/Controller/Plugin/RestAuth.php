@@ -5,6 +5,7 @@ class Tours_Controller_Plugin_RestAuth extends Zend_Controller_Plugin_Abstract
     {
 		// If the request is going to the API, check for authorization
         if($request->getModuleName() == "api" && $request->getControllerName() != 'index'){
+
 			$authHeader = $request->getHeader('Authorization');
 			$dateHeader = $request->getHeader('Date');
 
@@ -14,13 +15,19 @@ class Tours_Controller_Plugin_RestAuth extends Zend_Controller_Plugin_Abstract
 			if ($authHeader && $dateHeader) {
 				$authModel = new Application_Model_Authentication();
 				$method = ucfirst(strtolower($request->getMethod()));
-				$isAuthed = $authModel->authenticate($authHeader, $dateHeader, $method);
+				try{
+					$isAuthed = $authModel->authenticate($authHeader, $dateHeader, $method);
+				}catch(Tours_Exception_Authentication $e){
+					$error = $e->getMessage();
+				}
+			}else{
+				$error = "Authorization or Date header not set.\n";
 			}
 
 			if(!$isAuthed){
 				$this->getResponse()
 						->setHttpResponseCode(403)
-						->appendBody("Invalid API Key\n")
+						->appendBody($error)
 						;
 				$request->setModuleName('default')
 							->setControllerName('error')

@@ -53,14 +53,14 @@ Each client may request and receive a public/private key pair for use with the A
 
 Two headers are required, Authorization and Date.
 
-* Date must be formatted according to RFC 822 (updated by RFC 1123).
-  An example date is as follows: Sat, 22 Oct 2011 04:50:43 +0000
+Date must be formatted according to RFC 822 (updated by RFC 1123).
+An example date is as follows: Sat, 22 Oct 2011 04:50:43 +0000
   
-* Authorization must be formatted as shown below:
+Authorization must be formatted as shown below:
 
-  PublicKey:PrivateString
-  
-  where PrivateString = base64_encode(sha1(PrivateKey + "\n" + Date)) and Date is formatted the same way as the header.
+PublicKey:PrivateString
+
+where PrivateString = base64_encode(sha1(PrivateKey + "\n" + Date)) and Date is formatted the same way as the header.
   
 Note that when sending requests, the client must make sure its time is correct. When the server received a request, it checks to make sure the time sent via the Date header is within 180 seconds of the current GMT time.
 
@@ -69,8 +69,8 @@ Testing
 
 To test the API, you may use this public/private key pair:
 
-* public key: TlTVIFYuzq9UgsSnjnJUUVFOQr1UbzTIwQFyWEaQ0P4xaZZ29wBp9jb18ofMG9rS
-* private key: tP8Y798c0tDwVAlgi26ESrTePMFfKVPrkYfRckD6M2tvE5MIEn9w9qm2EZPRFTeF
+    * public key: TlTVIFYuzq9UgsSnjnJUUVFOQr1UbzTIwQFyWEaQ0P4xaZZ29wBp9jb18ofMG9rS
+    * private key: tP8Y798c0tDwVAlgi26ESrTePMFfKVPrkYfRckD6M2tvE5MIEn9w9qm2EZPRFTeF
 
 This keypair may only use the GET method, and may be disabled in the future.
 

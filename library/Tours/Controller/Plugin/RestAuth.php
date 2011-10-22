@@ -17,7 +17,7 @@ class Tours_Controller_Plugin_RestAuth extends Zend_Controller_Plugin_Abstract
 
 			$method = ucfirst(strtolower($request->getMethod()));
 			if(!in_array($method, $this->_validMethods)){
-				$error = "Method $method is invalid.\n";
+				$error = "Method $method is invalid.";
 			}else{		
 				$authHeader = $request->getHeader('Authorization');
 				$dateHeader = $request->getHeader('Date');
@@ -30,18 +30,16 @@ class Tours_Controller_Plugin_RestAuth extends Zend_Controller_Plugin_Abstract
 						$error = $e->getMessage();
 					}
 				}else{
-					$error = "Authorization or Date header not set.\n";
+					$error = "Authorization or Date header not set.";
 				}
 			}
 			if(!$isAuthed){
 				$this->getResponse()
-						->setHttpResponseCode(403)
-						->appendBody($error)
-						;
-				$request->setModuleName('default')
-							->setControllerName('error')
-							->setActionName('access')
-							->setDispatched(true);
+						->setHttpResponseCode(403);
+				$request->setParam('error_message', $error);
+				$request->setModuleName('api')
+						->setControllerName('error')
+						->setActionName('access');
 			}
 		}
     }

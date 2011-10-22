@@ -23,7 +23,8 @@ class Application_Model_Authentication extends Dm_Model_Abstract
 		$testValue = 'can'.$method;
 		if($client->isActive && $client->$testValue){
 			return $parts[2] === base64_encode(sha1($client->privateKey . "\n" . $dateHeader));
+		}else{
+			throw new Tours_Exception_Authentication_ClientNotAuthorized("Client is not authorized to perform that action.\n");
 		}
-		return false;
 	}
 }

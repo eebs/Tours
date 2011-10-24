@@ -6,7 +6,7 @@ class Application_Form_User_Base extends Dm_Form_Abstract {
 		
 		// add path to custom validators
         $this->addElementPrefixPath(
-            'Tour_Validate',
+            'Tours_Validate',
             APPLICATION_PATH . '/models/Validate/',
             'validate'
         );

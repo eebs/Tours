@@ -1,5 +1,5 @@
 <?php
-class Tour_Validate_UniqueEmail extends Zend_Validate_Abstract
+class Tours_Validate_UniqueEmail extends Zend_Validate_Abstract
 {
     const EMAIL_EXISTS = 'emailExists';
 

@@ -20,7 +20,7 @@ class Application_Model_User extends Dm_Model_Abstract
     public function registerUser($post)
     {
         $form = $this->getForm('userRegister');
-        return $this->save($form, $post, array('role' => 'user', 'joined' => time()));
+        return $this->save($form, $post, array('role' => 'user'));
     }
 
     public function saveUser($post)

@@ -94,6 +94,7 @@ class UserController extends Zend_Controller_Action {
 
 		$this->_forms['register'] = $this->_model->getForm('userRegister');
 		$this->_forms['register']->setAction($urlHelper->url(array(
+            'module'        => 'default',
 			'controller'	=> 'user',
 			'action'		=> 'complete-registration',
 		),
@@ -108,6 +109,7 @@ class UserController extends Zend_Controller_Action {
 
 		$this->_forms['userEdit'] = $this->_model->getForm('userEdit');
 		$this->_forms['userEdit']->setAction($urlHelper->url(array(
+            'module'        => 'default',
 			'controller'	=> 'user',
 			'action'		=> 'save',
 		),
@@ -122,6 +124,7 @@ class UserController extends Zend_Controller_Action {
 
         $this->_forms['login'] = $this->_model->getForm('userLogin');
         $this->_forms['login']->setAction($urlHelper->url(array(
+            'module'     => 'default',
             'controller' => 'user',
             'action'     => 'authenticate',
             ),

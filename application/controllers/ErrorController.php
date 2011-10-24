@@ -10,6 +10,10 @@ class ErrorController extends Zend_Controller_Action
 		$this->_helper->ViewRenderer->setNoRender(true);
 	}
 
+    public function deniedAction()
+    {
+    }
+
 	public function errorAction()
     {
         $errors = $this->_getParam('error_handler');

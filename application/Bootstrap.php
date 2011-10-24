@@ -50,8 +50,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
      */
     protected function _initLocale()
     {
-        $this->_logger->info('Bootstrap ' . __METHOD__);
-
         $locale = new Zend_Locale('en_US');
         Zend_Registry::set('Zend_Locale', $locale);
     }
@@ -61,8 +59,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
      */
     protected function _initViewSettings()
     {
-        $this->_logger->info('Bootstrap ' . __METHOD__);
-
 		$this->bootstrap('view');
 
 		$this->_view = $this->getResource('view');
@@ -103,8 +99,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
      */
     protected function _initNavigation()
     {
-    	$this->_logger->info('Bootstrap ' . __METHOD__);
-
     	$this->bootstrap('layout');
     	$layout = $this->getResource('layout');
     	$view = $layout->getView();
@@ -113,13 +107,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	$view->navigation($container);
     }
     
-    	/**
+    /**
      * Setup the Action Helpers
      */
     protected function _initActionHelpers()
     {
-    	$this->_logger->info('Bootstrap ' . __METHOD__);
-
     	Zend_Controller_Action_HelperBroker::addHelper(new Tours_Action_Helper_Statistics);
     }
 }

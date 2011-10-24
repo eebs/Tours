@@ -1,9 +1,9 @@
 <?php
-class Application_Model_Authentication extends Dm_Model_Abstract
+class Application_Model_Client extends Dm_Model_Abstract
 {   
     public function getClientByPublicKey($publicKey)
     {
-        return $this->getResource('Authentication')->getClientByPublicKey($publicKey);
+        return $this->getResource('Client')->getClientByPublicKey($publicKey);
     }
 
 	public function authenticate($authHeader, $dateHeader, $method){

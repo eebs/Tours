@@ -34,8 +34,8 @@ class UserController extends Zend_Controller_Action {
 			$form->setDescription('Login failed, please try again');
 			return $this->render('login');
 		}
-		$redirector = $this->getHelper('redirector');
-		return $redirector->gotoSimple('index', 'index');
+		$lastDecline = $this->getHelper('LastDecline');
+		return $lastDecline->redirect();
 	}
 
 	public function logoutAction(){

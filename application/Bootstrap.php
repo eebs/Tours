@@ -106,4 +106,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	$container = new Zend_Navigation($config);
     	$view->navigation($container);
     }
+
+    /**
+     * Setup the Action Helpers
+     */
+    protected function _initActionHelpers()
+    {
+        Zend_Controller_Action_HelperBroker::addHelper(new Tours_Controller_Action_Helper_LastDecline());
+    }
 }

@@ -1,0 +1,23 @@
+<tr class="row <?php echo ($this->partialCounter % 2 == 0) ? 'dark' : 'light'; ?>">
+	<td><img data-darktip="character:us.<?=$this->character->realm.'.'.$this->character->name;?>(en)" width="40" height="40" alt="icon" src="<?=$this->character->thumbnail;?>" /></td>
+	<td><a class="charname" data-darktip="character:us.<?=$this->character->realm.'.'.$this->character->name;?>(en)" href="<?=$this->url(array(
+                        'controller'	=> 'user',
+                        'action' 		=> 'character',
+						'id'			=> $this->character->characterId), null, true)?>"><?=$this->character->name;?></a></td>
+	<td><span data-darktip="realm:us.<?=$this->character->realm;?>(en)"><?=$this->character->realm;?></span></td>
+	<td><?=$this->character->level;?></td>
+	<td><?=$this->character->class;?></td>
+	<td class="fixedwidth"><?php if($this->character->isDefault == 'No'):?>
+		<a class="linkbutton on" href="<?=$this->url(array(
+                        'controller'	=> 'user',
+                        'action' 		=> 'setdefault',
+						'id'			=> $this->character->characterId), null, true)?>">Set As Default</a>
+	<?php else:?>
+		<a class="linkbutton off">Default</a>
+	<?php endif?></td>
+	<td class="fixedwidth"><a class="linkbutton" href="<?=$this->url(array(
+                        'controller'	=> 'user',
+                        'action' 		=> 'deletecharacter',
+						'id'			=> $this->character->characterId), null, true)?>">Delete</a>
+	</td>
+</tr>

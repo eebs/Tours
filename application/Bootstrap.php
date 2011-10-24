@@ -44,5 +44,82 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $restRoute = new Zend_Rest_Route($frontController, array(), array('api'));
         $frontController->getRouter()->addRoute('api', $restRoute);
 	}
+    
+    /**
+     * Setup locale
+     */
+    protected function _initLocale()
+    {
+        $this->_logger->info('Bootstrap ' . __METHOD__);
 
+        $locale = new Zend_Locale('en_US');
+        Zend_Registry::set('Zend_Locale', $locale);
+    }
+
+    /**
+     * Setup the view
+     */
+    protected function _initViewSettings()
+    {
+        $this->_logger->info('Bootstrap ' . __METHOD__);
+
+		$this->bootstrap('view');
+
+		$this->_view = $this->getResource('view');
+
+		// Set encoding and doctype
+        $this->_view->setEncoding('UTF-8');
+        $this->_view->doctype('XHTML1_STRICT');
+
+		// Set content type and language
+        $this->_view
+			->headMeta()
+			->appendHttpEquiv(
+				'Content-Type', 'text/html; charset=UTF-8'
+			);
+        $this->_view
+			->headMeta()
+			->appendHttpEquiv('Content-Language', 'en-US');
+
+		// Set css links
+        $this->_view
+			->headLink()
+			->appendStylesheet('/css/style.css');
+
+		// Set favicon
+        $this->_view->headLink(array(
+                'rel' => 'favicon',
+                'href' => '/images/favicon.ico'
+        ));
+
+		// Set the site title
+        $this->_view->headTitle('iCompute Tours Mobile Application');
+		// Set a separator
+        $this->_view->headTitle()->setSeparator(' - ');
+    }
+
+    /**
+     * Setup the navigation
+     */
+    protected function _initNavigation()
+    {
+    	$this->_logger->info('Bootstrap ' . __METHOD__);
+
+    	$this->bootstrap('layout');
+    	$layout = $this->getResource('layout');
+    	$view = $layout->getView();
+    	$config = new Zend_Config_Xml(APPLICATION_PATH . '/configs/navigation.xml', 'nav');
+    	$container = new Zend_Navigation($config);
+    	$view->navigation($container);
+    }
+    
+    	/**
+     * Setup the Action Helpers
+     */
+    protected function _initActionHelpers()
+    {
+    	$this->_logger->info('Bootstrap ' . __METHOD__);
+
+    	Zend_Controller_Action_HelperBroker::addHelper(new Tours_Action_Helper_Statistics);
+    }
 }

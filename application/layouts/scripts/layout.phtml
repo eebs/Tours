@@ -1,1 +1,69 @@
-<?php echo $this->layout()->content; ?>
+<?php echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<?php
+			echo $this->headMeta();
+			echo $this->headTitle();
+			echo $this->headStyle();
+			echo $this->headLink();
+			echo $this->headScript();
+		?>
+	</head>
+	<body>
+		<div class="bg_gradient">
+			<div class="content">
+				<div class="navigation">
+					<div class="right">
+						<?php echo $this->navigation()->menu()->setMaxDepth(0)->setUlClass('');; ?>
+					</div>
+				</div>
+			</div>
+			<div class="content">
+				<div class="breadcrumbs">
+				<?php echo $this->navigation()
+						->breadcrumbs()
+						->setMinDepth(0)
+						->setLinkLast(true)
+						->setSeparator(" &#187; ");
+				?>
+				</div>
+				<div class="loginout">
+					<?php if($this->authInfo()->isLoggedIn()): ?>
+						<a href="/user/logout">Logout (<?php echo $this->authInfo('email'); ?>)</a>
+					<?php else: ?>
+						<a href="/user/login">Login</a> - <a href="/user/register">Register</a>
+					<?php endif ?>
+				</div>
+				<div class="clear_both"></div>
+	        </div>
+			<div class="wrapper">
+				<div class="content">
+					<?php echo $this->layout()->content; ?>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="content">
+					<div class="footer_column">
+						<h4>Statistics</h4>
+						<ul>
+							<li><span class="highlight"><?php echo isset($this->totalusers) ? $this->totalusers : '0' ;?></span> <?php echo (isset($this->totalusers) && $this->totalusers === 1) ? 'Member' : 'Members';?></li>
+						</ul>
+					</div>
+					<div class="footer_column">
+						<h4>Contact</h4>
+						<ul>
+							<li><span class="highlight">Email:</span> <a href="mailto:eebs@eebs-tech.com">eebs@eebs-tech.com</a></li>
+						</ul>
+					</div>
+					<div class="footer_column">
+						<h4>About</h4>
+						<ul>
+							<li>This is some text.</li>
+							<li><span class="highlight"><a href="/faq">F.A.Q.</a></span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

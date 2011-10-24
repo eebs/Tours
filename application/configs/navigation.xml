@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+	<nav>
+		<home>
+			<label>Home</label>
+			<controller>index</controller>
+		</home>
+		<user>
+			<label>My Account</label>
+			<controller>user</controller>
+
+			<pages>
+				<save>
+					<label>Save</label>
+					<controller>user</controller>
+					<action>save</action>
+				</save>
+				<login>
+					<label>Login</label>
+					<controller>user</controller>
+					<action>login</action>
+				</login>
+				<register>
+					<label>Register</label>
+					<controller>user</controller>
+					<action>register</action>
+				</register>
+				<complete-registration>
+					<label>Register</label>
+					<controller>user</controller>
+					<action>complete-registration</action>
+				</complete-registration>
+			</pages>
+		</user>
+	</nav>
+</configdata>

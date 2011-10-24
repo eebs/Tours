@@ -14,7 +14,13 @@
 			<div class="content">
 				<div class="navigation">
 					<div class="right">
-						<?php echo $this->navigation()->menu()->setMaxDepth(0)->setUlClass('');; ?>
+						<?php echo $this->navigation()->menu()->setMaxDepth(0)->setUlClass(''); ?>
+                        <?php
+                        if($this->authInfo('role') === 'admin'):?>
+                        <ul>
+                            <li><a href="/admin">Admin</a></li>
+                        </ul>
+                        <?php endif; ?>
 					</div>
 				</div>
 			</div>

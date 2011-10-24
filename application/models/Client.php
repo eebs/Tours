@@ -6,6 +6,11 @@ class Application_Model_Client extends Dm_Model_Abstract
         return $this->getResource('Client')->getClientByPublicKey($publicKey);
     }
 
+    public function getClients($paged=false, $order=null)
+    {
+        return $this->getResource('Client')->getClients($paged, $order);
+    }
+
 	public function authenticate($authHeader, $dateHeader, $method){
 
 		$currentTimestamp = time();

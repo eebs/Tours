@@ -2,7 +2,13 @@
 
 class Admin_IndexController extends Zend_Controller_Action
 {
-	public function indexAction(){
-		
-	}
+    public function init()
+    {
+         // Get the default model
+         $this->_clientModel = new Application_Model_Client();
+    }
+
+    public function indexAction(){
+        $this->view->clients = $this->_clientModel->getClients();
+    }
 }

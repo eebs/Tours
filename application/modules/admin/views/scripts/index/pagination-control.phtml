@@ -1,0 +1,25 @@
+<?php if ($this->pageCount){
+	$params = Zend_Controller_Front::getInstance()->getRequest()->getParams();
+	unset($params['module']);
+	unset($params['controller']);
+	unset($params['action']);
+?>
+<div class="pagination">
+	<p class="results">Displaying <strong><?php echo $this->firstItemNumber; ?></strong> - <strong><?php echo $this->lastItemNumber; ?></strong> of <strong><?php echo $this->totalItemCount; ?></strong> results.</p>
+	<p class="numbers">
+		<?php if (isset($this->previous)){?>
+		<a href="<?php echo $this->url(array_merge($params, array('page' => $this->previous)));?>">Prev</a>
+		<?php } ?>
+		<?php foreach ($this->pagesInRange as $page){
+			if ($page != $this->current){ ?>
+				<a href="<?php echo $this->url(array_merge($params, array('page' => $page)));?>"><?php echo $page; ?></a>
+		<?php } else { ?>
+				<a class="selected" href="<?php echo $this->url(array_merge($params, array('page' => $page)));?>"><?php echo $page; ?></a>
+		<?php }}?>
+		<?php if (isset($this->next)){?>
+			<a href="<?php echo $this->url(array_merge($params, array('page' => $this->next)));?>">Next</a>
+		<?php } ?>
+	</p>
+	<div class="clear_both"></div>
+</div>
+<?php }?>

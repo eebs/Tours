@@ -402,30 +402,22 @@ p.error {
 	font-weight:bold;
 }
 
-.spreadsheet .row .realm, .spreadsheet .row .status, .spreadsheet .row .population, .spreadsheet .row .queue{
+.spreadsheet .row .publicKey, .spreadsheet .row .email, .spreadsheet .row .isActive, .spreadsheet .row .canGet, .spreadsheet .row .canPost, .spreadsheet .row .canPut, .spreadsheet .row .canDelete{
 	float:left;
 	padding:0 15px;
 	text-align:center;
 }
 
-.spreadsheet .row .realm {
-	text-align: left;
+.spreadsheet .publicKey{
+	width: 450px;
 }
 
-.spreadsheet .realm a{
-	color: rgb(52, 125, 181);
+.spreadsheet .email{
+	width: 130px;
 }
 
-.spreadsheet .realm, .spreadsheet .population{
-	width: 150px;
-}
-
-.spreadsheet .status{
-	width: 300px;
-}
-
-.spreadsheet .queue{
-	width: 278px;
+.spreadsheet .isActive, .spreadsheet .canGet, .spreadsheet .canPost, .spreadsheet .canPut, .spreadsheet .canDelete {
+	width: 40px;
 }
 
 .green{
@@ -438,57 +430,6 @@ p.error {
 
 .yellow{
 	color: rgb(236, 137, 0);
-}
-
-.characterlist{
-	border-spacing:0;
-	width:100%;
-	border:1px solid #e4e4e4;
-	
-}
-
-.characterlist tr{
-	padding:2px;
-	padding-top:5px;
-}
-
-.characterlist td{
-	text-align:center;
-	border:none;
-	border-top:1px solid #e4e4e4;
-}
-
-.characterlist img{
-	vertical-align:text-top;
-}
-
-.characterlist .row{
-	font-size:12px;
-	color:#4F565A;
-	border:1px solid #e4e4e4;
-	border-top: none;
-}
-
-.characterlist .row.dark{
-	background-color:#f2f2f2;
-}
-
-.characterlist .row.light{
-	background-color:#F9F9FB;
-}
-
-.characterlist a.charname{
-	color: rgb(52, 125, 181);
-}
-
-.characterlist .charname{
-	font-weight:bold;
-}
-
-.characterlist .fixedwidth{
-	width: 90px;
-	padding-right:10px;
-	padding-left:10px;
 }
 
 /* General Pages */

@@ -1,0 +1,10 @@
+<div class="row <?php echo ($this->partialCounter % 2 == 0) ? 'dark' : 'light'; ?>">
+	<div class="publicKey"><?php echo $this->model->publicKey;?></div>
+    <div class="email"><?php echo $this->model->email;?></div>
+	<div class="isActive <?php echo $this->model->isActive ? 'green' : 'red';?>"><?php echo $this->model->isActive ? 'Yes' : 'No';?></div>
+	<div class="canGet <?php echo $this->model->canGet ? 'green' : 'red';?>"><?php echo $this->model->canGet ? 'Yes' : 'No';?></div>
+    <div class="canPost <?php echo $this->model->canPost ? 'green' : 'red';?>"><?php echo $this->model->canPost ? 'Yes' : 'No';?></div>
+    <div class="canPut <?php echo $this->model->canPut ? 'green' : 'red';?>"><?php echo $this->model->canPut ? 'Yes' : 'No';?></div>
+    <div class="canDelete <?php echo $this->model->canDelete ? 'green' : 'red';?>"><?php echo $this->model->canDelete ? 'Yes' : 'No';?></div>
+	<div class="clear_both"></div>
+</div>

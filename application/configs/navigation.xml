@@ -5,6 +5,10 @@
 			<label>Home</label>
 			<controller>index</controller>
 		</home>
+		<api>
+			<label>API</label>
+			<module>api</module>
+		</api>
 		<user>
 			<label>My Account</label>
 			<controller>user</controller>

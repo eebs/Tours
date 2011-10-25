@@ -363,6 +363,10 @@ p.error {
 	display: none;
 }
 
+#create-client-submit  #submit{
+	width: 130px;
+}
+
 /* Tables */
 
 .createuserlink {

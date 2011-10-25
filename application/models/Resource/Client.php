@@ -27,7 +27,7 @@ class Application_Model_Resource_Client extends Dm_Model_Resource_Db_Table_Abstr
 			$adapter->setRowCount($count);
 
 			$paginator = new Zend_Paginator($adapter);
-			$paginator->setItemCountPerPage(5)->setCurrentPageNumber((int) $paged);
+			$paginator->setItemCountPerPage(10)->setCurrentPageNumber((int) $paged);
 			return $paginator;
 		}
         return $this->fetchAll($select);

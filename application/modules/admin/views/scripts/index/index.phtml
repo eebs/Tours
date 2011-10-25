@@ -5,5 +5,43 @@
 	<div class="clear_both"></div>
 </div>
 <div class='pagecontent'>
+    <div class="listblock">
+        <span><strong>Client Administration</strong></span>
+        <ul>
+            <li><a href="<?=$this->url(array(
+                        'module'        => 'admin',
+                        'controller'	=> 'client'), null, true);?>">Client List</a> - View all clients, edit or disable access to the API.</li>
+            <li><a href="<?=$this->url(array(
+                        'module'        => 'admin',
+                        'controller'	=> 'client'), null, true);?>">Add a Client</a> - Add a client with default values or set specific parameters.</li>
+        </ul>
+    </div>
+    <div class="listblock">
+        <span><strong>Tours Administration</strong></span>
+        <ul>
+            <li><a href="<?=$this->url(array(
+                        'module'        => 'admin',
+                        'controller'	=> 'client'), null, true);?>">Tours List</a> - View all tours, disable or suspend tours.</li>
+        </ul>
+    </div>
+    <div class="clear_both"></div>
+    <div class="listblock">
+        <span><strong>API Statistics</strong></span>
+        <ul>
+            <li><a href="<?=$this->url(array(
+                        'module'        => 'admin',
+                        'controller'	=> 'client'), null, true);?>">API Requests</a> - View statistics about incoming requests to the API.</li>
+            <li><a href="<?=$this->url(array(
+                        'module'        => 'admin',
+                        'controller'	=> 'client'), null, true);?>">Client Statistics</a> - View statistics related to all or specific clients.</li>
+            <li><a href="<?=$this->url(array(
+                        'module'        => 'admin',
+                        'controller'	=> 'client'), null, true);?>">Tour Statistics</a> - View statistics related to all or specific tours.</li>
+            <li><a href="<?=$this->url(array(
+                        'module'        => 'admin',
+                        'controller'	=> 'client'), null, true);?>">Data Usage Statistics</a> - View resource usage and information on sent data.</li>
+        </ul>
+    </div>
+    <div class="clear_both"></div>
 </div>
 <div class='pagecontentbottom'></div>

@@ -551,14 +551,38 @@ p.error {
 	color:#d1d4d6;
 }
 
-/* FAQ Page */
+/* Client Admin Page */
 
-#faqlist{
+.listblock{
+	float:left;
+	margin: 10px 15px 10px 15px;	
+	border:1px solid #e4e4e4;
+	-moz-border-radius:15px;
+	border-radius:15px;
+	padding:10px;
+	
+}
+
+.listblock ul{
+	list-style-type:none;
+}
+
+
+.listblock ul li{
+	margin: 5px 0 0 10px;
+	color: rgb(79, 86, 90);
+}
+
+.listblock ul li a{
+	font-weight: bold;
+}
+
+#blocklist{
 	margin:0;
 	padding:0;
 }
 
-#faqlist li{
+#blocklist li{
 	color: rgb(79, 86, 90);
 	list-style-type:none;
 	background-color:#F9F9FB;
@@ -570,13 +594,13 @@ p.error {
 	padding: 10px 10px;
 }
 
-#faqlist span{
+#blocklist span{
 	color: rgb(79, 86, 90);
 	font-size:14px;
 	font-weight: bold;
 }
 
-#faqlist p{
+#blocklist p{
 	margin-top:10px;
 	font-size:14px;
 }

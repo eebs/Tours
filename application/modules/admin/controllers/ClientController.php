@@ -13,6 +13,10 @@ class Admin_ClientController extends Zend_Controller_Action
     }
 
     public function indexAction(){
+        $this->_forward('list');
+    }
+
+    public function listAction(){
         $sort = $this->_getParam('sort', 'dateCreated');
         $this->view->clients = $this->_clientModel->getClients($this->_getParam('page', 1), array($sort . ' DESC'));
         $this->view->clientOrderForm->getElement('sort')->setValue($sort);

@@ -9,10 +9,13 @@ class Admin_IndexController extends Zend_Controller_Action
 
          // Add forms
          $this->view->clientCreateForm = $this->getClientCreateForm();
+         $this->view->clientOrderForm = $this->getClientOrderForm();
     }
 
     public function indexAction(){
-        $this->view->clients = $this->_clientModel->getClients($this->_getParam('page', 1), array('dateCreated DESC'));
+        $sort = $this->_getParam('sort', 'dateCreated');
+        $this->view->clients = $this->_clientModel->getClients($this->_getParam('page', 1), array($sort . ' DESC'));
+        $this->view->clientOrderForm->getElement('sort')->setValue($sort);
     }
 
     public function createclientAction()
@@ -34,5 +37,18 @@ class Admin_IndexController extends Zend_Controller_Action
 		$this->_forms['clientCreate']->setMethod('post');
 
 		return $this->_forms['clientCreate'];
+	}
+
+    public function getClientOrderForm(){
+		$urlHelper = $this->_helper->getHelper('url');
+
+		$this->_forms['clientOrder'] = $this->_clientModel->getForm('clientOrder');
+		$this->_forms['clientOrder']->setAction($urlHelper->url(array(
+            'module'        => 'admin',
+		),
+		'default'));
+		$this->_forms['clientOrder']->setMethod('post');
+
+		return $this->_forms['clientOrder'];
 	}
 }

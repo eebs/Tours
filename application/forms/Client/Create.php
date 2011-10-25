@@ -18,5 +18,7 @@ class Application_Form_Client_Create extends Dm_Form_Abstract {
 			),
             'label'			=> "Generate New Client",
         ));
+
+        $this->setAttrib('id', 'create-client-form');
     }
 }

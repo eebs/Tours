@@ -363,8 +363,21 @@ p.error {
 	display: none;
 }
 
+#create-client-form{
+	display: inline-block;
+}
+
+#order-client-submit{
+	float:right;
+}
+
 #create-client-submit  #submit{
 	width: 130px;
+}
+
+#order-client-form{
+	display: inline-block;
+	float:right;
 }
 
 /* Tables */

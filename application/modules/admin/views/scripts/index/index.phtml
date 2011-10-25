@@ -1,25 +1,9 @@
 <div class="sub_navigation">
 	<ol>
-		<li class="selected">All Clients</li>
+		<li class="selected">Administration</li>
 	</ol>
 	<div class="clear_both"></div>
 </div>
-<?php echo $this->paginationControl($this->clients, 'Sliding', 'index/pagination-control.phtml'); ?>
-<div class='spreadsheet'>
-	<div class="row headings">
-		<div class="publicKey">Public Key</div>
-        <div class="email">Email</div>
-		<div class="isActive">Active</div>
-		<div class="canGet">Get</div>
-		<div class="canPost">Post</div>
-        <div class="canPut">Put</div>
-		<div class="canDelete">Delete</div>
-		<div class="clear_both"></div>
-	</div>
-	<?php
-        $this->partialLoop()->setObjectKey('model');
-		echo $this->partialLoop('index/table-row.phtml', $this->clients);
-	?>
-    <?php echo $this->paginationControl($this->clients, 'Sliding', 'index/pagination-control.phtml'); ?>
+<div class='pagecontent'>
 </div>
-<div class='pagecontentbottom'><?php echo $this->clientCreateForm; ?><?php echo $this->clientOrderForm; ?><div class="clear_both"></div></div>
+<div class='pagecontentbottom'></div>

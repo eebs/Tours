@@ -10,6 +10,18 @@ class Application_Model_Resource_Client extends Dm_Model_Resource_Db_Table_Abstr
         return $this->find($publicKey)->current();
     }
 
+    public function getClientByEmail($email, $ignoreUser=null)
+    {
+        $select = $this->select();
+        $select->where('email = ?', $email);
+
+        if (null !== $ignoreUser) {
+            $select->where('email != ?', $ignoreUser->email);
+        }
+
+        return $this->fetchRow($select);
+    }
+
     public function getClients($paged=false, $order=null)
     {
 		$select = $this->select();

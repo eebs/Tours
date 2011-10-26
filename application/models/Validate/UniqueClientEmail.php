@@ -7,7 +7,7 @@ class Tours_Validate_UniqueClientEmail extends Zend_Validate_Abstract
         self::EMAIL_EXISTS => '"%value%" is already in use',
     );
 
-    public function __construct(Application_Model_User $model)
+    public function __construct(Application_Model_Client $model)
     {
         $this->_model = $model;
     }
@@ -15,8 +15,7 @@ class Tours_Validate_UniqueClientEmail extends Zend_Validate_Abstract
     public function isValid($value, $context = null)
     {
         $this->_setValue($value);
-        $currentUser = isset($context['userId']) ? $this->_model->getUserById($context['userId']) : null;
-        $user = $this->_model->getUserByEmail($value, $currentUser);
+        $user = $this->_model->getClientByEmail($value);
         
         if (null === $user) {
             return true;

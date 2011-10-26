@@ -6,6 +6,11 @@ class Application_Model_Client extends Dm_Model_Abstract
         return $this->getResource('Client')->getClientByPublicKey($publicKey);
     }
 
+    public function getClientByEmail($email)
+    {
+        return $this->getResource('Client')->getClientByEmail($email);
+    }
+
     public function getClients($paged=false, $order=null)
     {
         return $this->getResource('Client')->getClients($paged, $order);
@@ -42,12 +47,12 @@ class Application_Model_Client extends Dm_Model_Abstract
             $data[$col] = $value;
         }
 
-        return $this->save($data, array('email' => 'eebs@eebs-tech.com'));
+        return $this->save($data);
     }
 
     public function updateClient($post)
     {
-        return $this->save($post, array('email' => 'eebs@eebs-tech.com'));
+        return $this->save($post);
     }
 
     protected function save($data, $defaults=array())

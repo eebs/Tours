@@ -320,6 +320,17 @@ dl input {
 	width: 170px;
 }
 
+dl [type=checkbox]{
+	padding:0px;
+	margin:0px;
+	border:none;
+	background-color:none;
+	-moz-border-radius:none;
+	border-radius:none;
+	width:14px;
+	height:14px;
+}
+
 dl select {
 	padding: 2px 5px;
 	color:#636E75;

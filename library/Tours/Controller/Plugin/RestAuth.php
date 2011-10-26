@@ -23,7 +23,7 @@ class Tours_Controller_Plugin_RestAuth extends Zend_Controller_Plugin_Abstract
                 $dateHeader = $request->getHeader('Date');
 
                 if ($authHeader && $dateHeader) {
-                    $authModel = new Application_Model_Authentication();
+                    $authModel = new Application_Model_Client();
                     try{
                         $isAuthed = $authModel->authenticate($authHeader, $dateHeader, $method);
                     }catch(Tours_Exception_Authentication $e){

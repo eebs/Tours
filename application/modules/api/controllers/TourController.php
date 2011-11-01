@@ -20,24 +20,9 @@ class Api_TourController extends Zend_Rest_Controller
 
     public function indexAction()
     {
-        $data = array('tour'    => array(
-                array(
-                    'name'        => 'Tour1',
-                    'location'    => array(
-                        'lat'    => 1,
-                        'long'    => 2,
-                    )
-                ),
-                array(
-                    'name'        => 'Tour1',
-                    'location'    => array(
-                        'lat'    => 1,
-                        'long'    => 2,
-                    )
-                ),
-            )
-        );
-        $this->view->assign('tours', $data);
+        $toursArray = $this->_tourModel->getTours()->toArray();
+        $tours = array('tour'  => $toursArray);
+        $this->view->assign('tours', $tours);
     }
 
     public function getAction()

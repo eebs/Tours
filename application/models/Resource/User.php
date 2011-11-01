@@ -22,7 +22,7 @@ class Application_Model_Resource_User extends Dm_Model_Resource_Db_Table_Abstrac
         return $this->fetchRow($select);
     }
     
-    public function getUsers($paged=false, $order=null)
+    public function getUsers($paged=null, $order=null)
     {
 		$select = $this->select();
 		

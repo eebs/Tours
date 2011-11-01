@@ -12,7 +12,7 @@ class Application_Model_User extends Dm_Model_Abstract
         return $this->getResource('User')->getUserByEmail($email, $ignoreUser);
     }
     
-    public function getUsers($paged=false, $order=null)
+    public function getUsers($paged=null, $order=null)
     {
         return $this->getResource('User')->getUsers($paged, $order);
     }

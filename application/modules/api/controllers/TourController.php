@@ -34,22 +34,19 @@ class Api_TourController extends Zend_Rest_Controller
 
     public function postAction()
     {
+        $this->getResponse()->setHttpResponseCode(201);
         $params = $this->_helper->getHelper('Params');
-        var_dump($params->getBodyParams());
-        die;
         $this->view->assign('tour', $params->getBodyParam('tour'));
     }
 
     public function putAction()
     {
-        $this->getResponse()
-            ->appendBody("From putAction() updating the requested tour\n");
-
+        $params = $this->_helper->getHelper('Params');
+        $this->view->assign('tour', $params->getBodyParam('tour'));
     }
 
     public function deleteAction()
     {
-        $this->getResponse()
-            ->appendBody("From deleteAction() deleting the requested tour\n");
+        $this->getResponse()->setHttpResponseCode(204);
     }
 }

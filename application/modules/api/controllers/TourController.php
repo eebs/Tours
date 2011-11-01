@@ -1,4 +1,5 @@
 <?php
+require_once 'XML/Unserializer.php';
 
 class Api_TourController extends Zend_Rest_Controller
 {
@@ -33,8 +34,10 @@ class Api_TourController extends Zend_Rest_Controller
 
     public function postAction()
     {
-        $this->getResponse()
-            ->appendBody("From postAction() creating the requested tour\n");
+        $params = $this->_helper->getHelper('Params');
+        var_dump($params->getBodyParams());
+        die;
+        $this->view->assign('tour', $params->getBodyParam('tour'));
     }
 
     public function putAction()

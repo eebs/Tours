@@ -11,7 +11,7 @@ class Tours_Controller_Plugin_AcceptHandler extends Zend_Controller_Plugin_Abstr
                 case (FALSE !== strpos($header, 'application/json')):
                     $request->setParam('format', 'json');
                     break;
-                case ((FALSE !== strpos($header, 'application/xml'))):
+                case ((FALSE !== strpos($header, 'application/xml') && FALSE === strpos($header, 'html'))):
                     $request->setParam('format', 'xml');
                     break;
                 default:

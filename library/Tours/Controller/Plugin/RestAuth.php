@@ -41,6 +41,7 @@ class Tours_Controller_Plugin_RestAuth extends Zend_Controller_Plugin_Abstract
                         break;
                     case ($error instanceof Tours_Exception_Authentication_InvalidApiKey):
                     case ($error instanceof Tours_Exception_Authentication_HeaderNotSet):
+                    case ($error instanceof Tours_Exception_Authentication_InvalidUser):
                         $this->getResponse()
                             ->setHttpResponseCode(401);
                         break;

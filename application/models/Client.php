@@ -16,27 +16,48 @@ class Application_Model_Client extends Dm_Model_Abstract
         return $this->getResource('Client')->getClients($paged, $order);
     }
 
-	public function authenticate($authHeader, $dateHeader, $method){
+    public function authenticate($authHeader, $dateHeader, $method){
+        preg_match('/(.*):(.*):(.*):(.*)/', $authHeader, $parts);
 
-		$currentTimestamp = time();
-		$date = new DateTime($dateHeader);
-		if(abs($date->getTimestamp() - $currentTimestamp) > 180){
-			throw new Tours_Exception_Authentication_DateOutOfBounds("Date header is not within 180 seconds of current GMT time.");
-		}
+        $this->authenticateDate($dateHeader);
+        $this->authenticateClient($parts, $dateHeader, $method);
+        $this->authenticateUser($parts);
+        return true;
+    }
 
-		preg_match('/(.*):(.*)/', $authHeader, $parts);
+    private function authenticateDate($dateHeader){
+        $currentTimestamp = time();
+        $date = new DateTime($dateHeader);
+        if(abs($date->getTimestamp() - $currentTimestamp) > 180){
+            throw new Tours_Exception_Authentication_DateOutOfBounds("Date header is not within 180 seconds of current GMT time.");
+        }
+    }
 
-		$client = $this->getClientByPublicKey($parts[1]);
-		if(NULL === $client){
-			throw new Tours_Exception_Authentication_InvalidApiKey("Invalid API key.");
-		}
-		$testValue = 'can'.$method;
-		if($client->isActive && $client->$testValue){
-			return $parts[2] === base64_encode(sha1($client->privateKey . "\n" . $dateHeader));
-		}else{
-			throw new Tours_Exception_Authentication_ClientNotAuthorized("Client is not authorized to perform that action.");
-		}
-	}
+    private function authenticateClient($parts, $dateHeader, $method){
+        $client = $this->getClientByPublicKey($parts[1]);
+        if(NULL === $client){
+            throw new Tours_Exception_Authentication_InvalidApiKey("Invalid API key.");
+        }
+        $testValue = 'can'.$method;
+        if($parts[2] === base64_encode(sha1($client->privateKey . "\n" . $dateHeader))){
+            if(!$client->isActive || !$client->$testValue){
+                throw new Tours_Exception_Authentication_ClientNotAuthorized("Client is not authorized to perform that action.");
+            }
+        }else{
+            throw new Tours_Exception_Authentication_InvalidApiKey("Invalid API key.");
+        }
+    }
+
+    private function authenticateUser($parts){
+        $userModel = new Application_Model_User();
+        $user = $userModel->getUserByEmail(base64_decode($parts[3]));
+        if(NULL === $user){
+            throw new Tours_Exception_Authentication_InvalidUser('The username or password is incorrect.');
+        }
+        if($user->password !== sha1(sha1(base64_decode($parts[4])) . $user->salt)){
+            throw new Tours_Exception_Authentication_InvalidUser('The username or password is incorrect.');
+        }
+    }
 
     public function createClient($info = array())
     {

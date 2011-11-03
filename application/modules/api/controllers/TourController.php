@@ -29,7 +29,11 @@ class Api_TourController extends Zend_Rest_Controller
     public function getAction()
     {
         $tour = $this->_tourModel->getTourById($this->getRequest()->getParam('id'));
-        $this->view->assign('tour', $tour->toArray());
+        $media = $tour->getMedia();
+        $tourArray = $tour->toArray();
+        $mediaArray = array('file' => $media->toArray());
+        $tourArray['media'] = $mediaArray;
+        $this->view->assign('tour', $tourArray);
     }
 
     public function postAction()

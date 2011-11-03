@@ -9,11 +9,9 @@ class Application_Model_Resource_Tour_Item extends Dm_Model_Resource_Db_Table_Ro
      */
     public function getMedia()
     {
-        $select = $this->select();
-		$select->from(array('m' => 'media'), array('uniqueFileName'));
-        return $this->findDependentRowset('Application_Model_Resource_Media',
-            'Media',
-            $select
+        return $this->findDependentRowset(
+            'Application_Model_Resource_Media',
+            'Media'
         );
     }
 }

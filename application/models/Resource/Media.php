@@ -7,8 +7,8 @@ class Application_Model_Resource_Media extends Dm_Model_Resource_Db_Table_Abstra
     
     protected $_referenceMap = array(
         'Media' => array(
-            'columns' => 'tourId',
-            'refTableClass' => 'Application_Model_Resource_Tour',
+            'columns' => 'stopNumber',
+            'refTableClass' => 'Application_Model_Resource_Stop',
             'refColumns' => 'id',
         )
     );

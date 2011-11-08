@@ -101,8 +101,6 @@ class Application_Model_Client extends Dm_Model_Abstract
         $seed = (float) $sec + ((float) $usec * 100000);
         mt_srand($seed);
 
-        $seedings = 'abcdefghijklmnopqrstuvwqyzABCDEFGHIJKLMNOPQRSTUVWQYZ0123456789';
-
         // Generate
         $seeds_count = strlen($seeds);
         for ($i = 0; $length > $i; $i++){

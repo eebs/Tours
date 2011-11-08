@@ -1,5 +1,5 @@
 <?php
 interface Application_Model_Resource_Tour_Item_Interface
 {
-    public function getMedia();
+    public function getStops();
 }

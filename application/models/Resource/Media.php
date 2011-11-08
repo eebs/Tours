@@ -13,8 +13,8 @@ class Application_Model_Resource_Media extends Dm_Model_Resource_Db_Table_Abstra
         )
     );
 
-    public function getMediaById($id)
+    public function getMediaByUniqueFileName($uniqueFileName)
     {
-        return $this->find($id)->current();
+        return $this->find($uniqueFileName)->current();
     }
 }

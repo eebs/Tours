@@ -51,9 +51,15 @@ class Api_TourController extends Zend_Rest_Controller
 
     public function postAction()
     {
-        $this->getResponse()->setHttpResponseCode(201);
         $params = $this->_helper->getHelper('Params');
-        $this->view->assign('tour', $params->getBodyParam('tour'));
+        $tourForm = $this->getTourForm();
+        if($tourForm->isValid($params->getBodyParam('tour'))){
+            // Put in DB
+            $this->getResponse()->setHttpResponseCode(201);
+            // Redirect to new object
+        }else{
+            // Error messages from form
+        }
     }
 
     public function putAction()
@@ -66,4 +72,9 @@ class Api_TourController extends Zend_Rest_Controller
     {
         $this->getResponse()->setHttpResponseCode(204);
     }
+
+    public function getTourForm(){
+        $this->_forms['tourBase'] = $this->_tourModel->getForm('tourBase');
+        return $this->_forms['tourBase'];
+	}
 }

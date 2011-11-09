@@ -620,7 +620,11 @@ p.error {
 #readme {
     font: 13.34px helvetica,arial,freesans,clean,sans-serif;
 }
-
+#readme h1{
+    color:#25303A;
+    text-align:center;
+    margin-bottom:30px;
+}
 #readme h2{
 	border-top: 4px solid #CCCCCC;
     color: #4F565A;
@@ -636,4 +640,10 @@ p.error {
     border: 1px solid #aaa;
     padding: 7px 5px;
     color: #333;
+}
+#readme li{
+    margin:0px 30px 18px;
+}
+#readme li pre{
+    width:94%
 }

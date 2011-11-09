@@ -11,7 +11,6 @@ class Application_Form_Tour_Base extends Dm_Form_Abstract {
                 array('StringLength', true, array(2, 128)),
             ),
             'required'      => true,
-            'label'         => 'Title:',
         ));
 
         $this->addElement('text', 'description', array(
@@ -20,7 +19,6 @@ class Application_Form_Tour_Base extends Dm_Form_Abstract {
                 array('Alnum', false, array('allowWhiteSpace'    => true)),
             ),
             'required'      => true,
-            'label'         => 'Description:',
         ));
 
         $this->addElement('select', 'access', array(
@@ -30,7 +28,6 @@ class Application_Form_Tour_Base extends Dm_Form_Abstract {
                 'Drive' => 'Drive',
             ),
             'required'      => true,
-            'label'         => 'Access:',
         ));
 
         $this->addElement('text', 'rating', array(
@@ -40,7 +37,6 @@ class Application_Form_Tour_Base extends Dm_Form_Abstract {
                 array('Between', true, array(1, 5)),
             ),
             'required'      => true,
-            'label'         => 'Rating:',
         ));
 
         $this->addElement('text', 'tags', array(
@@ -49,7 +45,6 @@ class Application_Form_Tour_Base extends Dm_Form_Abstract {
                 array('Alpha', false, array('allowWhiteSpace'   => true)),
             ),
             'required'      => true,
-            'label'         => 'Tags:',
         ));
 
         $this->addElement('text', 'numdownloads', array(
@@ -58,7 +53,6 @@ class Application_Form_Tour_Base extends Dm_Form_Abstract {
                 'Int',
             ),
             'required'      => true,
-            'label'         => 'Rating:',
         ));
 
         $this->addElement('hidden', 'id', array(

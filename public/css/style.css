@@ -466,7 +466,7 @@ p.error {
 	background-color:#F9F9FB;	
 	border:1px solid #e4e4e4;
 	border-bottom:none;
-	padding: 10px;
+	padding: 29px 40px;
 }
 
 .pagecontent strong{
@@ -614,4 +614,26 @@ p.error {
 #blocklist p{
 	margin-top:10px;
 	font-size:14px;
+}
+
+/*----README CSS------*/
+#readme {
+    font: 13.34px helvetica,arial,freesans,clean,sans-serif;
+}
+
+#readme h2{
+	border-top: 4px solid #CCCCCC;
+    color: #4F565A;
+    display: block;
+    font-size: large;
+    margin: 20px 0 15px;
+    padding-top: 5px;
+}
+#readme pre{
+    display: block;
+    overflow: scroll;
+    background-color: #f2f2f2;
+    border: 1px solid #aaa;
+    padding: 7px 5px;
+    color: #333;
 }

@@ -319,3 +319,17 @@ Examples
 * **Date Header**
 
         Date: Sat, 22 Oct 2011 04:50:43 +0000
+
+        Date: Thu, 10 Nov 2011 19:20:52 +0000
+
+* **Accept Header**
+
+        Accept: application/json
+
+        Accept: application/xml
+
+* **Content-Type Header**
+
+        Content-Type: application/json
+
+        Content-Type: application/xml

@@ -28,7 +28,7 @@ class Api_TourController extends Zend_Rest_Controller
 
     public function getAction()
     {
-        $tour = $this->_tourModel->getTourById($this->getRequest()->getParam('id'));
+        $tour = $this->_tourModel->getTourById((int)$this->getRequest()->getParam('id'));
         $tourArray = $tour->toArray();
 
         $stops = $tour->getStops();
@@ -75,6 +75,10 @@ class Api_TourController extends Zend_Rest_Controller
 
     public function deleteAction()
     {
-        $this->getResponse()->setHttpResponseCode(204);
+        if($this->_tourModel->deleteTour((int)$this->getRequest()->getParam('id'))){
+            $this->getResponse()->setHttpResponseCode(204);
+        }else{
+            $this->getResponse()->setHttpResponseCode(404);
+        }
     }
 }

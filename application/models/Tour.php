@@ -37,4 +37,14 @@ class Application_Model_Tour extends Dm_Model_Abstract
         $tour = array_key_exists('id', $data) ? $this->getResource('Tour')->getTourById($data['id']) : null;
         return $this->getResource('Tour')->saveRow($data, $tour);
     }
+
+    public function deleteTour($id){
+        $tour = $this->getTourById($id);
+
+        if($tour){
+            $tour->delete();
+            return true;
+        }
+        return false;
+    }
 }

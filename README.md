@@ -113,7 +113,7 @@ The tour resource allows clients to retrieve and save tours.
 
 * **DeleteAction**
 
-  Requests to the Delete actino will delete the tour with the ID passed in via the URL parameters. So `DELETE /api/tour/1` will delete the tour with ID 1.
+  Requests to the Delete action will delete the tour with the ID passed in via the URL parameters. So `DELETE /api/tour/1` will delete the tour with ID 1.
 
 Testing
 -------

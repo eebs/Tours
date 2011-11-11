@@ -28,11 +28,12 @@ class Api_TourController extends Zend_Rest_Controller
 
     public function getAction()
     {
-        $tour = $this->_tourModel->getTourById((int)$this->getRequest()->getParam('id'));
+        $id = (int)$this->getRequest()->getParam('id');
+        $tour = $this->_tourModel->getTourById($id);
         if(null === $tour){
             $format = $this->getRequest()->getParam('format');
-            Zend_Registry::set('error_message', 'Invalid tour ID');
-            return $this->_forward('error', 'error', 'api', array('format'=>$format));
+            Zend_Registry::set('error_message', "Invalid tour id: $id");
+            return $this->_forward('error', 'error', 'api', array('format'=>$format, 'code' => 404));
         }
         $tourArray = $tour->toArray();
 
@@ -64,7 +65,7 @@ class Api_TourController extends Zend_Rest_Controller
             $form = $this->_tourModel->getForm('tourCreate');
             Zend_Registry::set('error_message', $form->getMessages());
 
-            return $this->_forward('error', 'error', 'api', array('format'=>$format));
+            return $this->_forward('error', 'error', 'api', array('format'=>$format, 'code'=>422));
         }else{
             // Preserve format and return representation
             $this->_forward('get', 'tour', 'api', array(

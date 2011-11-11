@@ -24,6 +24,7 @@ class Api_ErrorController extends Zend_Controller_Action
         if(Zend_Registry::isRegistered('error_message')){
             $error_message = Zend_Registry::get('error_message');
         }
+        $this->getResponse()->setHttpResponseCode($this->getRequest()->getParam('code', 500));
         $this->view->assign('error_message', $error_message);
     }
 }

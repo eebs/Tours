@@ -52,14 +52,16 @@ class Api_TourController extends Zend_Rest_Controller
     public function postAction()
     {
         $params = $this->_helper->getHelper('Params');
+        $format = $this->getRequest()->getParam('format');
 
         if(false === ($id = $this->_tourModel->createTour($params->getBodyParam('tour')))){
             // Get error messages from form and output
             $form = $this->_tourModel->getForm('tourCreate');
-            $this->view->assign('tour', $form->getMessages());
+            Zend_Registry::set('error_message', $form->getMessages());
+
+            return $this->_forward('error', 'error', 'api', array('format'=>$format));
         }else{
             // Preserve format and return representation
-            $format = $this->getRequest()->getParam('format');
             $this->_forward('get', 'tour', 'api', array(
                 'id'        => $id,
                 'format'    => $format,

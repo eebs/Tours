@@ -1,0 +1,14 @@
+<?php
+    require_once 'XML/Serializer.php';
+    $options = array(
+                XML_SERIALIZER_OPTION_RETURN_RESULT     => true,
+                XML_SERIALIZER_OPTION_LINEBREAKS        => '',
+                XML_SERIALIZER_OPTION_MODE              => XML_SERIALIZER_MODE_SIMPLEXML,
+                XML_SERIALIZER_OPTION_ROOT_NAME         => 'error_message',
+                XML_SERIALIZER_OPTION_XML_DECL_ENABLED  => true,
+                XML_SERIALIZER_OPTION_XML_ENCODING      => 'UTF-8',
+            );
+    $serializer = new XML_Serializer($options);
+    $result = $serializer->serialize($this->error_message);
+    echo $result;
+ ?>

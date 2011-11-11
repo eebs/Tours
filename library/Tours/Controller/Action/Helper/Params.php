@@ -1,5 +1,7 @@
 <?php
 
+require_once 'XML/Unserializer.php';
+
 class Tours_Controller_Action_Helper_Params extends Zend_Controller_Action_Helper_Abstract
 {
     /**

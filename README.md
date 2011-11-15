@@ -59,32 +59,32 @@ The following table shows how URI's are matched to functions:
 
 <table>
 	<tr>
-		<td>GET	/api/tours/</td>
+		<td>GET	/api/tour/</td>
 		<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 		<td>Api_ToursController::indexAction()</td>
 	</tr>
 	<tr>
-		<td>GET	/api/tours/:id</td>
+		<td>GET	/api/tour/:id</td>
 		<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 		<td>Api_ToursController::getAction()</td>
 	</tr>
 	<tr>
-		<td>POST /api/tours/</td>
+		<td>POST /api/tour/</td>
 		<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 		<td>Api_ToursController::postAction()</td>
 	</tr>
 	<tr>
-		<td>POST /api/tours/:id</td>
+		<td>POST /api/tour/:id</td>
 		<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 		<td>Api_ToursController::putAction()</td>
 	</tr>
 	<tr>
-		<td>PUT	/api/tours/:id</td>
+		<td>PUT	/api/tour/:id</td>
 		<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 		<td>Api_ToursController::putAction()</td>
 	</tr>
 	<tr>
-		<td>DELETE/api/tours/:id</td>
+		<td>DELETE/api/tour/:id</td>
 		<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 		<td>Api_ToursController::deleteAction()</td>
 	</tr>

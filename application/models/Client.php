@@ -44,7 +44,7 @@ class Application_Model_Client extends Dm_Model_Abstract
                 throw new Tours_Exception_Authentication_ClientNotAuthorized("Client is not authorized to perform that action.");
             }
         }else{
-            throw new Tours_Exception_Authentication_InvalidApiKey("Invalid API key.");
+            throw new Tours_Exception_Authentication_InvalidApiKey("Could not authenticate API Key.");
         }
     }
 

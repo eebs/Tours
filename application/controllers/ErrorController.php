@@ -3,15 +3,20 @@
 class ErrorController extends Zend_Controller_Action
 {
 
-	public function accessAction()
-	{
-		$logger = Zend_Registry::get('log');
-		$logger->notice('Unauthorized Request');
-		$this->_helper->ViewRenderer->setNoRender(true);
-	}
+    public function init(){
+        $logger = Zend_Registry::get('log');
+        $action = $this->getRequest()->getActionName();
+        $logger->err('Error: ' . ucfirst($action));
+    }
+
+    public function accessAction()
+    {
+        $this->_helper->ViewRenderer->setNoRender(true);
+    }
 
     public function deniedAction()
     {
+        $this->_helper->ViewRenderer->setNoRender(true);
     }
 
 	public function errorAction()

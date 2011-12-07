@@ -29,7 +29,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $logger->addWriter($writer);
 
 		if ('production' == $this->getEnvironment()) {
-			$filter = new Zend_Log_Filter_Priority(Zend_Log::CRIT);
+			$filter = new Zend_Log_Filter_Priority(Zend_Log::INFO);
 			$logger->addFilter($filter);
 		}
 
